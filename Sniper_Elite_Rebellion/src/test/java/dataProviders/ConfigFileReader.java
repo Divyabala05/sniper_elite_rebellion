@@ -10,7 +10,6 @@ public class ConfigFileReader {
     private Properties properties;
     private final String propertyFilePath = "configs//Configuration.properties";
 
-
     public ConfigFileReader() {
         BufferedReader reader;
         try {
@@ -27,12 +26,10 @@ public class ConfigFileReader {
             throw new RuntimeException("Configuration.properties not found at " + propertyFilePath);
         }
     }
-
     public String getApplicationUrl() {
         String url = properties.getProperty("url");
         if (url != null) return url;
         else throw new RuntimeException("url not specified in the Configuration.properties file.");
     }
-
 
 }

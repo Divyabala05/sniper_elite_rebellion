@@ -98,7 +98,6 @@ public class SniperElitePage extends BasePageObject {
         return driver.findElement(By.cssSelector("button.hero__link.is-large .button__label"));
     }
 
-
 //Shop Reblion
 
     private WebElement rebllionCookiePopUp() {
@@ -274,21 +273,17 @@ public class SniperElitePage extends BasePageObject {
     }
 
     public void verifyMenuItemsVisible(String itemName) {
-        // Find all the menu links
         List<WebElement> menuLinks = driver.findElements(By.cssSelector("a.nav-item__link"));
 
         for (WebElement link : menuLinks) {
             String linkText = link.getText().trim();
 
-            // Check if the link matches the passed item name
             if (linkText.equalsIgnoreCase(itemName)) {
-                // Verify if the link is displayed
                 Assert.assertTrue(link.isDisplayed());
                 System.out.println(itemName + " link is visible");
-                return; // Exit once the link is found and checked
+                return;
             }
         }
-        // If we don't find the link in the menu, print an error
         System.out.println("The link " + itemName + " is not found in the navigation.");
     }
 
@@ -297,7 +292,6 @@ public class SniperElitePage extends BasePageObject {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", socialMedia);
         socialMedia.isDisplayed();
         WebElement footerSection = waitForanElement(footerSection());
-        // ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", socialMedia);
         footerSection.isDisplayed();
     }
 
@@ -308,26 +302,21 @@ public class SniperElitePage extends BasePageObject {
     }
 
     public void verifyShopRebellionPage() {
-        // Store the current window handle (main page)
         String mainWindow = driver.getWindowHandle();
-        // Wait until a new window opens
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(d -> d.getWindowHandles().size() > 1);
-        // Switch to the new window
         for (String windowHandle : driver.getWindowHandles()) {
             if (!windowHandle.equals(mainWindow)) {
                 driver.switchTo().window(windowHandle);
                 break;
             }
         }
-        // Verify the URL of the new page
         String currentUrl = driver.getCurrentUrl();
         Assert.assertTrue(currentUrl.contains("shop.rebellion.com"),
                 "Expected shop URL not loaded. Actual URL: " + currentUrl);
     }
 
 //shop Rebellion
-
     public void isShopCookiePopUpDisplayed() {
         try {
             WebElement cookieWindow = waitForanElement(rebllionCookiePopUp());

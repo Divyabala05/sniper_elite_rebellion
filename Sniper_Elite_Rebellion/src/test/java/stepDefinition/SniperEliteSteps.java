@@ -66,15 +66,18 @@ public class SniperEliteSteps {
     public void the_footer_component_should_be_displayed() {
         sniperElitePage.isFooterSectionVisible();
     }
+
     @Given("the hero banner heading {string} is visible")
     public void the_hero_banner_heading_is_visible(String Text) {
         sniperElitePage.acceptCookie();
         sniperElitePage.isHeroBannerHeadingVisible(Text);
     }
+
     @And("the sub-heading text {string} is visible")
     public void the_sub_heading_text_is_visible(String Subhead) {
-       sniperElitePage.isSubHeadingVisible(Subhead);
+        sniperElitePage.isSubHeadingVisible(Subhead);
     }
+
     @And("the page finishes loading")
     public void the_page_finishes_loading() {
         sniperElitePage.acceptCookie();
@@ -83,12 +86,12 @@ public class SniperEliteSteps {
 
     @Then("the {string} CTA button is visible on the hero banner")
     public void the_cta_button_is_visible_on_the_hero_banner(String Text) {
-      sniperElitePage.isBuyNowCtaVisible(Text);
+        sniperElitePage.isBuyNowCtaVisible(Text);
     }
 
     @When("the user clicks the “BUY NOW” button")
     public void the_user_clicks_the_buy_now_button() {
-       sniperElitePage.clickOnBuyNow();
+        sniperElitePage.clickOnBuyNow();
     }
 
     @And("the platform tiles “PC”, “XBOX”, and “PLAYSTATION” are visible")
@@ -106,6 +109,7 @@ public class SniperEliteSteps {
         sniperElitePage.isPCTilePopupWindowVisible();
 
     }
+
     @Then("a modal for PC purchase appears with “STANDARD EDITION” pre-selected")
     public void a_modal_for_pc_purchase_appears_with_standard_edition_pre_selected() {
         sniperElitePage.verifyStandEditionPreselected();
@@ -121,8 +125,6 @@ public class SniperEliteSteps {
     public void the_rebellion_shop_page_opens_in_a_new_browser_window() {
         sniperElitePage.verifyShopRebellionPage();
         sniperElitePage.isShopCookiePopUpDisplayed();
-
-
     }
 
     @Given("Sniper Elite Resistance Standard Edition is pre-selected")
@@ -134,26 +136,26 @@ public class SniperEliteSteps {
 
     @And("the free “Super Elite Camo T-Shirt” is pre-selected in size “XS”")
     public void the_free_super_elite_camo_t_shirt_is_pre_selected_in_size_xs() {
-        sniperElitePage. isXSSizePreselected();
+        sniperElitePage.isXSSizePreselected();
     }
 
     @Given("the quantity is set to 1 by default")
     public void the_quantity_is_set_to_1_by_default() {
-      sniperElitePage.quantityCheck();
+        sniperElitePage.quantityCheck();
 
 
     }
 
     @When("the user clicks the “Add to Cart” button")
     public void the_user_clicks_the_add_to_cart_button() {
-     sniperElitePage.clickOnAddToCart();
-     //sniperElitePage.verifyProductHeadingInCart();
+        sniperElitePage.clickOnAddToCart();
+        //sniperElitePage.verifyProductHeadingInCart();
     }
 
     @And("a cart drawer overlay appears showing the selected items")
     public void a_cart_drawer_overlay_appears_showing_the_selected_items() {
-    sniperElitePage.isCartDrawerOverlayVisible();
-    sniperElitePage.verifyProductSubHeadInCart();
+        sniperElitePage.isCartDrawerOverlayVisible();
+        sniperElitePage.verifyProductSubHeadInCart();
     }
 
 
@@ -162,7 +164,6 @@ public class SniperEliteSteps {
         sniperElitePage.clickOnGoToCart(AddToCart);
 
     }
-
 
     @After
     public void tearDown() {
